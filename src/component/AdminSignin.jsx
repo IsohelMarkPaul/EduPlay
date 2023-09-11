@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 import boygirl from '../assets/BoyAndGirl.png';
 import TeacherSignIn from './TeacherSignUp';
 
-function TeacherLogin() {
+function AdminSignin() {
     return (
         <div className="flex items-center justify-center min-h-screen background ">
             <main className="w-full md:w-[80%] lg:w-[70%] xl:w-[60%] m-4 text-center   grid grid-cols-[35%_65%] ">
@@ -19,15 +19,16 @@ function TeacherLogin() {
                         <img className='object-cover w-fit h-[90%]' src={boygirl} alt="Logo" />
                     </div>
                 </div>
-                <div className='bg-[#f7d538] opacity-95 flex flex-row  justify-center'>
+                <div className='flex flex-row justify-center bg-white opacity-95'>
                     <div>
-                        <h1 className='mt-40 font-extrabold mb-14 px-14 text-8xl font-expletus'>SIGN IN  </h1>
+                        <h1 className='mt-40 text-6xl font-extrabold px- 14 font-expletus'>ADMIN </h1>
+                        <h1 className='font-extrabold mb-14 px-14 text-8xl font-expletus'>SIGN IN  </h1>
                         <div>
                             <form className=''>
-                                <input className="w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white placeholder-white font-kumbh" id="username" type="text" placeholder="Username">
+                                <input className="w-[100%] rounded-full flex p-4 mt-8 text-4xl bg-black text-white placeholder-white font-kumbh" id="username" type="text" placeholder="Email">
                                 </input>
 
-                                <input className="w-[100%] justify-center flex items-center rounded-full  px-10  p-4 mt-8 text-4xl bg-black text-white placeholder-white font-kumbh" id="password" type="password" placeholder="Password">
+                                <input className="w-[100%] justify-center flex items-center rounded-full   p-4 mt-8 text-4xl bg-black text-white placeholder-white font-kumbh" id="password" type="password" placeholder="Password">
                                 </input>
 
                                 <div class="flex justify-around mt-2 ">
@@ -48,12 +49,12 @@ function TeacherLogin() {
 
 
                                 </div>
-                                <button class="w-[80%] font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold" type="button">
+                                <button class="w-[80%] mb-14 font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold" type="button">
                                     SIGN IN
                                 </button>
 
                             </form>
-                            <p class="pb-4 text-2xl font-medium mt-2 font-sourceSans3">Don't have an account? <a href="#" class="font-bold font-sourceSans3 ">Sign Up</a></p>
+
                         </div>
 
                     </div>
@@ -65,4 +66,4 @@ function TeacherLogin() {
     );
 }
 
-export default TeacherLogin;
+export default AdminSignin;

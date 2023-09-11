@@ -13,3 +13,7 @@
     background-color: #f7d538;
     overflow-y: auto;
 }
+
+.homepageParent:hover .homepageChild {
+    opacity: 0.5;
+}

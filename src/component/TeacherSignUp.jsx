@@ -21,33 +21,33 @@ const TeacherSignIn = () => {
                 </div>
                 <div className='bg-[#f7d538] opacity-95 flex flex-row  px-14 justify-center'>
                     <div>
-                        <h1 className='mt-24 font-extrabold px-14 text-8xl font-expletus'>SIGN UP  </h1>
+                        <h1 className='mt-24 font-extrabold px-14 text-8xl text-[#252525] font-expletus'>SIGN UP  </h1>
                         <div>
                             <form className=''>
                                 <div className='flex justify-center gap-2 mt-8'>
-                                    <input className="w-[100%] rounded-full flex p-4  text-4xl bg-black text-white placeholder-white font-kumbh" id="fname" type="text" placeholder="First Name">
+                                    <input className="w-[100%] rounded-full flex p-4 px-10 text-4xl bg-[#252525] text-white placeholder-white font-kumbh" id="fname" type="text" placeholder="First Name">
                                     </input>
 
-                                    <input className="w-[100%] justify-center p-4 flex items-center rounded-full     text-4xl bg-black text-white placeholder-white font-kumbh" id="lname" type="text" placeholder="Last Name">
+                                    <input className="w-[100%] justify-center p-4 px-10 flex items-center rounded-full     text-4xl bg-[#252525] text-white placeholder-white font-kumbh" id="lname" type="text" placeholder="Last Name">
                                     </input>
                                 </div>
 
-                                <input className="w-[100%] justify-center mt-4 p-4 flex items-center rounded-full     text-4xl bg-black text-white placeholder-white font-kumbh" id="lname" type="email" placeholder="Email">
+                                <input className="w-[100%] justify-center mt-4 p-4  px-10 flex items-center rounded-full     text-4xl bg-[#252525] text-white placeholder-white font-kumbh" id="lname" type="email" placeholder="Email">
                                 </input>
 
-                                <input className="w-[100%] justify-center mt-4 p-4 flex items-center rounded-full     text-4xl bg-black text-white placeholder-white font-kumbh" id="lname" type="password" placeholder="Password" required>
+                                <input className="w-[100%] justify-center mt-4 p-4 px-10 flex items-center rounded-full     text-4xl bg-[#252525] text-white placeholder-white font-kumbh" id="lname" type="password" placeholder="Password" required>
                                 </input>
 
-                                <input className="w-[100%] justify-center mt-4 p-4 flex items-center rounded-full     text-4xl bg-black text-white placeholder-white font-kumbh" id="lname" type="password" placeholder="Confirm Password " required>
+                                <input className="w-[100%] justify-center mt-4 p-4 px-10 flex items-center rounded-full     text-4xl bg-[#252525] text-white placeholder-white font-kumbh" id="lname" type="password" placeholder="Confirm Password " required>
                                 </input>
 
 
-                                <button class="w-[50%] font-sourceSans3 text-center rounded-full p-2 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold" type="button">
+                                <button class="w-[50%] font-sourceSans3 text-center rounded-full p-2  mt-10 text-5xl bg-[#252525]  shadow-lg  text-white placeholder-white font-bold" type="button">
                                     SIGN UP
                                 </button>
 
                             </form>
-                            <p class="pb-4 text-2xl font-medium mt-4 font-sourceSans3">Already have an account? <a href="#" class="font-bold font-sourceSans3 ">Sign In</a></p>
+                            <p class="pb-4 text-2xl font-medium mt-4 font-sourceSans3">Already have an account? <a href="#" class="font-bold font-sourceSans3 underline ">Sign In</a></p>
                         </div>
 
                     </div>
