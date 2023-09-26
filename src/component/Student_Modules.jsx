@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-import { HiMenu } from 'react-icons/hi';
-import logo from '../assets/logo.png';
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import { FaLock } from "react-icons/fa";
-
+import Student_Navbar from './Student_Navbar';
+import Student_Homepage from './Student_Homepage';
 
 
 function Student_Modules() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [moduleStates, setModuleStates] = useState([false, false]); // Initialize states for each module
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     const toggleModule = (index) => {
         const updatedStates = [...moduleStates];
         updatedStates[index] = !updatedStates[index];
@@ -32,43 +25,6 @@ function Student_Modules() {
     return (
         <>
             <div className='backgroundYellow'>
-                <nav className="m-4 text-white bg-[#252525] rounded-3xl sticky top-0 z-50">
-                    <div className="flex items-center justify-between w-full p-2 ">
-                        <div className="flex items-center">
-                            <img className='w-24 m-0 ' src={logo} alt="Logo" />
-                            <h1 className="pl-2 text-4xl font-bold xl:pr-40 font-reemkufifont">EDUPLAY</h1>
-                        </div>
-                        <div className="justify-end hidden w-full space-x-4 text-2xl font-bold font-expletus xl:flex">
-
-                            <a href="#" className="p-5 hover:text-gray-500 ">HOME</a>
-
-
-                            <a href="#" className="p-5 hover:text-gray-500">PROFILE</a>
-
-
-
-                            <a href="#" className="p-5 hover:text-gray-500">LOGOUT</a>
-
-                        </div>
-
-                        <div className=" xl:hidden">
-                            <HiMenu onClick={toggleMenu} className="text-3xl cursor-pointer" />
-                        </div>
-                    </div>
-                    {isMenuOpen && (
-                        <div className="py-4 bg-gray-800 xl:hidden">
-                            <div className="container flex flex-col items-center mx-auto space-y-4 font-expletus">
-                                <a href="#" className="text-white">HOME</a>
-                                <a href="#" className="text-white">PROFILE</a>
-
-                                <a href="#" className="text-white">LOGOUT</a>
-                            </div>
-                        </div>
-                    )}
-
-
-                </nav>
-
                 <div>
                     <div>
                         <div className='relative grid p-4 rounded-3xl'>

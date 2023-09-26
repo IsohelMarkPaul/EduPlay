@@ -42,12 +42,12 @@ const TeacherSignIn = () => {
                                 </input>
 
 
-                                <button class="w-[50%] font-sourceSans3 text-center rounded-full p-2  mt-10 text-5xl bg-[#252525]  shadow-lg  text-white placeholder-white font-bold" type="button">
+                                <button className="w-[50%] font-sourceSans3 text-center rounded-full p-2  mt-10 text-5xl bg-[#252525]  shadow-lg  text-white placeholder-white font-bold" type="button">
                                     SIGN UP
                                 </button>
 
                             </form>
-                            <p class="pb-4 text-2xl font-medium mt-4 font-sourceSans3">Already have an account? <a href="#" class="font-bold font-sourceSans3 underline ">Sign In</a></p>
+                            <p className="pb-4 mt-4 text-2xl font-medium font-sourceSans3">Already have an account? <a href="#" className="font-bold underline font-sourceSans3 ">Sign In</a></p>
                         </div>
 
                     </div>
