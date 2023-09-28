@@ -27,15 +27,13 @@ function App() {
             <Route path='Student_Profile' element={<Student_Profile />} />
             <Route path='Student_Modules' element={<Student_Modules />} />
             <Route path='Student_Navbar' element={<Student_Navbar />} />
-
           </Route>
-          <Route path='/Student_Login' element={<Student_Login > </Student_Login>} />
+          <Route path='/Student_Login' element={<Student_Login />} />
+
+          {/*Teacher Routes*/}
           <Route path='/TeacherLogin' element={<TeacherLogin />} />
           <Route path='/TeacherSignUp' element={<TeacherSignUp />} />
           <Route path='/TeacherHomepage' element={<TeacherHomepage />} />
-
-
-
         </Routes>
       </BrowserRouter>
     </>

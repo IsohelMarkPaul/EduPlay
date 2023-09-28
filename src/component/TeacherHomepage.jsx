@@ -21,8 +21,8 @@ function TeacherHomepage() {
                         </div>
                         <div className='absolute bottom-0 right-0 p-4'>
                             <a href="">
-                                <button class="bg-[#ff5757] hover:bg-red-700 shadow-lg shadow-black flex items-center lg:text-5xl text-white  font-bold py-2 px-4 rounded-full">
-                                    <di>ACCOUNT MANAGEMENT</di>
+                                <button className="bg-[#ff5757] hover:bg-red-700 shadow-lg shadow-black flex items-center lg:text-5xl text-white  font-bold py-2 px-4 rounded-full">
+                                    <div>ACCOUNT MANAGEMENT</div>
                                     <IoChevronForwardCircleSharp className="lg:text-6xl " />
                                 </button>
                             </a>
@@ -40,8 +40,8 @@ function TeacherHomepage() {
                         </div>
                         <div className='absolute bottom-0 right-0 p-4'>
                             <a href="">
-                                <button class="bg-[#5271ff] hover:bg-[#2047f1] shadow-lg shadow-black flex items-center lg:text-5xl text-white  font-bold py-2 px-4 rounded-full">
-                                    <di>LEARNING GROUP</di>
+                                <button className="bg-[#5271ff] hover:bg-[#2047f1] shadow-lg shadow-black flex items-center lg:text-5xl text-white  font-bold py-2 px-4 rounded-full">
+                                    <div>LEARNING GROUP</div>
                                     <IoChevronForwardCircleSharp className="lg:text-6xl " />
                                 </button>
                             </a>

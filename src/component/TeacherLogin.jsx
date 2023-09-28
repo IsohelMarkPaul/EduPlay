@@ -1,16 +1,34 @@
-import { React, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { React } from 'react';
 import logo from '../assets/logo.png';
 import boygirl from '../assets/BoyAndGirl.png';
+import { useFormik } from 'formik';
+import { TeacherSchema } from '../SchemaValidation';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function TeacherLogin() {
+    const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
+        initialValues: {
+            TeacherUsername: "",
+            TeacherPassword: "",
+        },
+        validationSchema: TeacherSchema,
+        onSubmit: (values) => onSubmit(values, navigate),
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = handleSubmit((data) => {
-        console.log(data);
-    })
+    });
+
+    const navigate = useNavigate();
+
+    const onSubmit = (values) => {
+        console.log("Submitted");
+        console.log(values)
+        navigate('/TeacherHomepage');
+
+    }
+    console.log(errors);
+    console.log(values)
+
 
     return (
         <div className="flex items-center justify-center min-h-screen background ">
@@ -31,15 +49,27 @@ function TeacherLogin() {
                     <div>
                         <h1 className='mt-40 font-extrabold mb-14 px-14 text-8xl font-expletus'>SIGN IN  </h1>
                         <div>
-                            <form action="" onSubmit={onSubmit}>
-                                <input ref={register()} className="w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white placeholder-white font-kumbh"
-                                    name='username'
+                            <form action="" onSubmit={handleSubmit}>
+
+
+                                <input className={`w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white border-2 placeholder-white font-kumbh
+                                 ${touched.TeacherUsername && errors.TeacherUsername ? 'border-red-500 ' : ''}`}
+                                    name='TeacherUsername'
                                     type="text"
-                                    placeholder="Username">
+                                    placeholder="Username"
+                                    value={values.TeacherUsername}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}>
                                 </input>
 
-                                <input ref={register()} className="w-[100%] justify-center flex items-center rounded-full  px-10  p-4 mt-8 text-4xl bg-black text-white placeholder-white font-kumbh" id="password" type="password" placeholder="Password">
-
+                                <input className={`w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white border-2 placeholder-white font-kumbh
+                                 ${touched.TeacherPassword && errors.TeacherPassword ? 'border-red-500 ' : ''}`}
+                                    id="TeacherPassword"
+                                    type="password"
+                                    placeholder="Password"
+                                    value={values.TeacherPassword}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}>
                                 </input>
 
                                 <div className="flex justify-around mt-2 ">
@@ -57,12 +87,13 @@ function TeacherLogin() {
                                         </a>
                                     </div>
                                 </div>
-                                <button className="w-[80%] font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold" type="submit">
+                                <button className="w-[80%] font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold"
+                                    type="submit">
                                     SIGN IN
                                 </button>
                             </form>
 
-                            <p className="pb-4 mt-2 text-2xl font-medium font-sourceSans3">Don't have an account? <a href="#" className="font-bold font-sourceSans3 ">Sign Up</a></p>
+                            <p className="pb-4 mt-2 text-2xl font-medium font-sourceSans3">Don't have an account? <Link to='/TeacherSignUp' className="font-bold font-sourceSans3 ">Sign Up </Link></p>
                         </div>
                     </div>
                 </section>

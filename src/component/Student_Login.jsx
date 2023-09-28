@@ -1,10 +1,10 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import logo from '../assets/logo.png';
 import boygirl from '../assets/BoyAndGirl.png';
 import { useFormik } from 'formik';
 import { studentSchema } from '../SchemaValidation';
 import { useNavigate } from 'react-router-dom';
-import Student_Homepage from './Student_Homepage';
+
 
 function Student_Login() {
 
@@ -48,7 +48,8 @@ function Student_Login() {
                         <h1 className='font-extrabold mb-14 px-14 text-8xl font-expletus'>SIGN IN  </h1>
                         <div>
                             <form onSubmit={handleSubmit} >
-                                <input className={`w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white border-2 placeholder-white font-kumbh ${touched.username && errors.username ? 'border-red-500 ' : ''}`}
+                                <input className={`w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white border-2 placeholder-white font-kumbh
+                                 ${touched.username && errors.username ? 'border-red-500 ' : ''}`}
                                     name='username'
                                     type="text"
                                     placeholder="Username"
@@ -58,7 +59,8 @@ function Student_Login() {
                                 >
                                 </input>
 
-                                <input className={`w-[100%] justify-center flex items-center rounded-full  px-10 border-2  p-4 mt-8 text-4xl  bg-black text-white placeholder-white font-kumbh ${touched.password && errors.password ? 'border-red-500 ' : ''} `}
+                                <input className={`w-[100%] justify-center flex items-center rounded-full  px-10 border-2  p-4 mt-8 text-4xl  bg-black text-white placeholder-white font-kumbh 
+                                ${touched.password && errors.password ? 'border-red-500 ' : ''} `}
                                     id="password"
                                     type="password"
                                     placeholder="Password"
@@ -77,7 +79,8 @@ function Student_Login() {
                                         </label>
                                     </div>
                                 </div>
-                                <button className="w-[80%] font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold" type="submit">
+                                <button className="w-[80%] font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold"
+                                    type="submit">
                                     SIGN IN
                                 </button>
                             </form>
