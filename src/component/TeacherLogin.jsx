@@ -47,13 +47,14 @@ function TeacherLogin() {
                 </div>
                 <section className='bg-[#f7d538] opacity-95 flex flex-row  justify-center'>
                     <div>
-                        <h1 className='mt-40 font-extrabold mb-14 px-14 text-8xl font-expletus'>SIGN IN  </h1>
+                        <h2 className='font-extrabold mt-36 px-14 text-7xl font-expletus'>Teacher</h2>
+                        <h1 className='font-extrabold mb-14 px-14 text-8xl font-expletus'>SIGN IN  </h1>
                         <div>
                             <form action="" onSubmit={handleSubmit}>
 
 
                                 <input className={`w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white border-2 placeholder-white font-kumbh
-                                 ${touched.TeacherUsername && errors.TeacherUsername ? 'border-red-500 ' : ''}`}
+                                 ${touched.TeacherUsername && errors.TeacherUsername ? 'border-red-500  shadow-lg shadow-red-500' : ''}`}
                                     name='TeacherUsername'
                                     type="text"
                                     placeholder="Username"
@@ -63,7 +64,7 @@ function TeacherLogin() {
                                 </input>
 
                                 <input className={`w-[100%] rounded-full flex p-4 px-10 mt-8 text-4xl bg-black text-white border-2 placeholder-white font-kumbh
-                                 ${touched.TeacherPassword && errors.TeacherPassword ? 'border-red-500 ' : ''}`}
+                                 ${touched.TeacherPassword && errors.TeacherPassword ? 'border-red-500 shadow-lg shadow-red-500 ' : ''}`}
                                     id="TeacherPassword"
                                     type="password"
                                     placeholder="Password"
@@ -72,7 +73,7 @@ function TeacherLogin() {
                                     onBlur={handleBlur}>
                                 </input>
 
-                                <div className="flex justify-around mt-2 ">
+                                <div className="flex justify-around mt-3 ">
                                     <div className="mb-6 ">
                                         <label className="block font-bold text-gray-500">
                                             <input className="leading-tight " type="checkbox"></input>
@@ -82,9 +83,9 @@ function TeacherLogin() {
                                         </label>
                                     </div>
                                     <div>
-                                        <a className="inline-block ml-10 text-lg font-bold text-blue-500 align-baseline hover:text-blue-800" href="#">
+                                        <Link to="/Teacher_Send_Email" className="inline-block ml-10 text-lg font-bold text-blue-500 align-baseline hover:text-blue-800" href="#">
                                             Forgot Password?
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <button className="w-[80%] font-sourceSans3 text-center rounded-full  p-4 mt-4 text-5xl bg-black shadow-lg hover:shadow-green-400 text-white placeholder-white font-bold"

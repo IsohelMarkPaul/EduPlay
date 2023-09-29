@@ -19,3 +19,16 @@ export const TeacherSignUpSchema = yup.object().shape({
         .oneOf([yup.ref('password'), null], 'Passwords must match')
 });
 
+export const TeacherForgotSchema = yup.object().shape({
+    email: yup.string().required("Required"),
+});
+
+export const TeacherForgotSchemaCode = yup.object().shape({
+    code: yup.string().required("Required"),
+});
+
+export const TeacherForgotSchemaResetPassword = yup.object().shape({
+    password: yup.string().required("Required"),
+    confirmPassword: yup.string()
+        .oneOf([yup.ref('password'), null], 'Passwords must match')
+});

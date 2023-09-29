@@ -3,15 +3,12 @@ import logo from '../assets/logo.png';
 import boygirl from '../assets/BoyAndGirl.png';
 import { useFormik } from 'formik';
 import { TeacherSignUpSchema } from '../SchemaValidation';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const TeacherSignUp = () => {
     // Define the initial form values and validation schema
     const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
         initialValues: {
-            fname: "",
-            lname: "",
-            email: "",
             password: "",
             confirmPassword: "",
         },
@@ -134,7 +131,7 @@ const TeacherSignUp = () => {
                             </form>
 
                             {/* Sign-in link */}
-                            <p className="pb-4 mt-4 text-2xl font-medium font-sourceSans3">Already have an account? <a href="#" className="font-bold underline font-sourceSans3 ">Sign In</a></p>
+                            <p className="pb-4 mt-4 text-2xl font-medium font-sourceSans3">Already have an account? <Link to="/TeacherLogin" className="font-bold underline font-sourceSans3 ">Sign In</Link></p>
                         </div>
                     </div>
                 </div >

@@ -13,7 +13,9 @@ function Teacher_Navbar() {
             <div className="flex items-center justify-between w-full p-2 ">
                 <div className="flex items-center">
                     <img className='w-24 m-0 ' src={logo} alt="Logo" />
-                    <h1 className="pl-2 text-4xl font-bold xl:pr-40 font-reemkufifont">EDUPLAY</h1>
+                    <div>
+                        <h1 className="flex pl-2 text-4xl font-bold xl:pr-40 font-reemkufifont">EDUPLAY <span className='mt-3 ml-2 text-xl'>TEACHER</span></h1>
+                    </div>
                 </div>
                 <div className="justify-end hidden w-full space-x-4 text-2xl font-bold font-expletus xl:flex">
 
