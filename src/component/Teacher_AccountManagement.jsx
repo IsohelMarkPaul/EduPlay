@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Teacher_Navbar from './Teacher_Navbar';
-import { useTable } from 'react-table';
-import { BiEditAlt } from "react-icons/bi";
+import { useTable, useGlobalFilter } from 'react-table';
+import { BiEditAlt } from 'react-icons/bi';
 
 function Teacher_AccountManagement() {
     const [data, setData] = useState([]);
+    const [filterInput, setFilterInput] = useState('');
 
     useEffect(() => {
         // Fetch the JSON data from the local file
@@ -58,7 +59,11 @@ function Teacher_AccountManagement() {
                 accessor: 'STATUS',
                 Cell: ({ value }) => (
                     <span
-                        className={` m-auto px-2 py-1 rounded ${value === 'ACTIVE' ? 'bg-green-500 rounded-full px-9' : value === 'DISABLE' ? 'bg-red-500 px-7' : 'bg-white'
+                        className={` m-auto px-2 py-1 rounded ${value === 'ACTIVE'
+                            ? 'bg-green-500 rounded-full px-9'
+                            : value === 'DISABLE'
+                                ? 'bg-red-500 px-7'
+                                : 'bg-white'
                             } text-white`}
                     >
                         {value}
@@ -75,10 +80,17 @@ function Teacher_AccountManagement() {
         headerGroups,
         rows,
         prepareRow,
-    } = useTable({
-        columns,
-        data,
-    });
+        state,
+        setGlobalFilter,
+    } = useTable(
+        {
+            columns,
+            data,
+        },
+        useGlobalFilter // Use the global filter hook
+    );
+
+    const { globalFilter } = state;
 
     return (
         <>
@@ -89,18 +101,27 @@ function Teacher_AccountManagement() {
                 </header>
 
                 <main className='bg-[#a5d6a7]  mx-4 mt-2 rounded-lg p-5'>
-
+                    <div className='mb-4'>
+                        <input
+                            type='text'
+                            value={filterInput}
+                            onChange={(e) => {
+                                setFilterInput(e.target.value);
+                                setGlobalFilter(e.target.value); // Set the global filter value
+                            }}
+                            placeholder='Search...'
+                            className='p-2 rounded-md'
+                        />
+                    </div>
 
                     <table {...getTableProps()} style={{ borderCollapse: 'collapse', width: '100%' }}>
                         <thead>
                             {headerGroups.map((headerGroup) => (
-                                <tr {...headerGroup.getHeaderGroupProps()} >
+                                <tr {...headerGroup.getHeaderGroupProps()}>
                                     {headerGroup.headers.map((column) => (
                                         <th
                                             {...column.getHeaderProps()}
-                                            style={{
-
-                                            }}
+                                            style={{}}
                                             className='p-2 py-4 text-3xl text-center text-white bg-black'
                                         >
                                             {column.render('Header')}
@@ -116,12 +137,10 @@ function Teacher_AccountManagement() {
                                 return (
                                     <tr
                                         {...row.getRowProps()}
-                                        className='gap-5 font-semibold border-8 border-[#a5d6a7] '
+                                        className='gap-5 font-semibold border-8 border-[#a5d6a7]'
                                         style={{
-
                                             background: index % 2 === 0 ? '#b6b6b6' : 'white', // Apply gray background for even rows
                                         }}
-
                                     >
                                         {row.cells.map((cell) => {
                                             return (
