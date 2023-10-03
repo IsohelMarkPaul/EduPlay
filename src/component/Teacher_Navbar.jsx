@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 function Teacher_Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ function Teacher_Navbar() {
                 </div>
                 <div className="justify-end hidden w-full space-x-4 text-2xl font-bold font-expletus xl:flex">
 
-                    <a href="#" className="p-5 hover:text-gray-500 ">HOME</a>
+                    <Link to="/TeacherHomepage" href="#" className="p-5 hover:text-gray-500 ">HOME</Link>
 
                     <a href="#" className="p-5 hover:text-gray-500">LOGOUT</a>
 

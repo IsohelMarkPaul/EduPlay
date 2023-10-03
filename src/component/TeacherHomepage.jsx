@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../assets/logo.png';
 import { IoChevronForwardCircleSharp } from "react-icons/io5";
 import Teacher_Navbar from './Teacher_Navbar';
 
