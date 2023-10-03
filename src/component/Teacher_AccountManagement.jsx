@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Teacher_Navbar from './Teacher_Navbar';
-import { useTable, useGlobalFilter } from 'react-table';
+import { useTable, useFilters } from 'react-table';
 import { BiEditAlt } from 'react-icons/bi';
 
 function Teacher_AccountManagement() {
     const [data, setData] = useState([]);
     const [filterInput, setFilterInput] = useState('');
+    const [selectedGrade, setSelectedGrade] = useState('');
 
     useEffect(() => {
         // Fetch the JSON data from the local file
-        fetch('/src/Student_Data/MOCK_DATA.json') // Replace with the actual path
+        fetch('/src/Student_Data/MOCKK_DATA.json') // Replace with the actual path
             .then((response) => response.json())
             .then((jsonData) => {
                 setData(jsonData);
@@ -29,6 +30,8 @@ function Teacher_AccountManagement() {
             {
                 Header: 'GRADE LEVEL',
                 accessor: 'GRADELEVEL',
+                Filter: GradeLevelFilter, // Custom filter component
+                filter: 'equals',
             },
             {
                 Header: 'LASTNAME',
@@ -81,16 +84,31 @@ function Teacher_AccountManagement() {
         rows,
         prepareRow,
         state,
-        setGlobalFilter,
+        setFilter,
     } = useTable(
         {
             columns,
             data,
         },
-        useGlobalFilter // Use the global filter hook
+        useFilters // Use the filter hook
     );
 
-    const { globalFilter } = state;
+    const { filters } = state;
+
+    useEffect(() => {
+        // When selectedGrade changes, update the filter
+        if (selectedGrade === '') {
+            // If "All Grades" is selected, remove the grade level filter
+            setFilter('GRADELEVEL', undefined);
+        } else {
+            setFilter('GRADELEVEL', selectedGrade);
+        }
+    }, [selectedGrade]);
+
+    useEffect(() => {
+        // When filterInput changes, update the text filter
+        setFilter('LASTNAME', filterInput);
+    }, [filterInput]);
 
     return (
         <>
@@ -101,19 +119,41 @@ function Teacher_AccountManagement() {
                 </header>
 
                 <main className='bg-[#a5d6a7]  mx-4 mt-2 rounded-lg p-5'>
-                    <div className='mb-4'>
-                        <input
-                            type='text'
-                            value={filterInput}
-                            onChange={(e) => {
-                                setFilterInput(e.target.value);
-                                setGlobalFilter(e.target.value); // Set the global filter value
-                            }}
-                            placeholder='Search...'
-                            className='p-2 rounded-md'
-                        />
+                    <div className='flex items-center justify-between m-2'>
+                        <div>
+                            <h1>REGISTERED ACCOUNT</h1>
+                        </div>
+                        <div className='flex'>
+                            <div className=''>
+                                <input
+                                    type='text'
+                                    value={filterInput}
+                                    onChange={(e) => {
+                                        setFilterInput(e.target.value);
+                                    }}
+                                    placeholder='Search...'
+                                    className='p-2 rounded-md'
+                                />
+                            </div>
+                            <div className=''>
+                                {/* Dropdown Select for Grade Level */}
+                                <select
+                                    value={selectedGrade}
+                                    onChange={(e) => {
+                                        setSelectedGrade(e.target.value);
+                                    }}
+                                    className='p-2 rounded-md'
+                                >
+                                    <option value=''>All Grades</option>
+                                    {[1, 2, 3].map((grade) => (
+                                        <option key={grade} value={grade}>
+                                            Grade {grade}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
                     </div>
-
                     <table {...getTableProps()} style={{ borderCollapse: 'collapse', width: '100%' }}>
                         <thead>
                             {headerGroups.map((headerGroup) => (
@@ -160,6 +200,25 @@ function Teacher_AccountManagement() {
                 </main>
             </div>
         </>
+    );
+}
+
+// Custom filter component for Grade Level
+function GradeLevelFilter({ column }) {
+    const { filterValue, setFilter } = column;
+    return (
+        <select
+            value={filterValue || ''}
+            onChange={(e) => setFilter(e.target.value || undefined)}
+            className='p-2 rounded-md'
+        >
+            <option value=''>All Grades</option>
+            {[1, 2, 3].map((grade) => (
+                <option key={grade} value={grade}>
+                    Grade {grade}
+                </option>
+            ))}
+        </select>
     );
 }
 
