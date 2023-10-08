@@ -20,7 +20,7 @@ function Teacher_Navbar() {
                 </div>
                 <div className="justify-end hidden w-full space-x-4 text-2xl font-bold font-expletus xl:flex">
 
-                    <Link to="/TeacherHomepage" href="#" className="p-5 hover:text-gray-500 ">HOME</Link>
+                    <Link to="/Teacher_Homepage" className="p-5 hover:text-gray-500 ">HOME</Link>
 
                     <a href="#" className="p-5 hover:text-gray-500">LOGOUT</a>
 

@@ -5,8 +5,6 @@ import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import BGmodule from '../assets/Homepage_Image/modules_bg.png';
 import BGass from '../assets/Homepage_Image/assessment_bg.png';
 import BGlr from '../assets/Homepage_Image/learningGroup_bg.png';
-import Student_Navbar from './Student_Navbar';
-import Student_Modules from './Student_Modules';
 import { Link, Outlet } from 'react-router-dom';
 
 

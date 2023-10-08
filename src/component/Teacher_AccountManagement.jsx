@@ -113,7 +113,7 @@ function Teacher_AccountManagement() {
     return (
         <>
             <div className='backgroundYellow'>
-                <Teacher_Navbar />
+
                 <header className='grid bg-red-500  grid-row-[50%_50%]  mx-4 rounded-3xl gap-3 p-4 text-4xl font-reemkufifont font-bold '>
                     <h1>ACCOUNT MANAGEMENT</h1>
                 </header>

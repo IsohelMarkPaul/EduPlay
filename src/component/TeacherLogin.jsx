@@ -23,7 +23,7 @@ function TeacherLogin() {
     const onSubmit = (values) => {
         console.log("Submitted");
         console.log(values)
-        navigate('/TeacherHomepage');
+        navigate('/Teacher_Homepage');
 
     }
     console.log(errors);

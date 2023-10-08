@@ -6,6 +6,7 @@ import { studentSchema } from '../SchemaValidation';
 import { useNavigate } from 'react-router-dom';
 
 
+
 function Student_Login() {
 
     const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
@@ -23,7 +24,7 @@ function Student_Login() {
     const onSubmit = (values) => {
         console.log("Submitted");
         console.log(values)
-        navigate('/');
+        navigate('/Student_Homepage');
     }
 
     console.log(errors);

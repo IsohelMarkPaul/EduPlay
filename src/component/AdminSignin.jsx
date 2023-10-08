@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.png';
 import boygirl from '../assets/BoyAndGirl.png';
-import TeacherSignIn from './TeacherSignUp';
+
 
 function AdminSignin() {
     return (
