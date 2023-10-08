@@ -4,11 +4,9 @@ import boygirl from '../assets/BoyAndGirl.png';
 import { useFormik } from 'formik';
 import { studentSchema } from '../SchemaValidation';
 import { useNavigate } from 'react-router-dom';
-
-
+import axios from 'axios';
 
 function Student_Login() {
-
     const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
         initialValues: {
             username: "",
@@ -20,12 +18,39 @@ function Student_Login() {
 
     const navigate = useNavigate();
 
-    //Submit Form Values
-    const onSubmit = (values) => {
-        console.log("Submitted");
-        console.log(values)
-        navigate('/Student_Homepage');
-    }
+    // Function to send JWT token with Axios requests
+    const setAuthHeader = () => {
+        // Assuming you have the JWT token stored in a variable called `jwtToken`
+        const jwtToken = "your_jwt_token_here";
+
+        axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+    };
+
+    // Submit Form Values
+    const onSubmit = async (values) => {
+        try {
+            // Set the JWT token in Axios headers before making the request
+            setAuthHeader();
+
+            const response = await axios.get('/src/Student_Data/MOCK_USERS.json');
+            const students = response.data;
+
+            const student = students.find(
+                (student) =>
+                    student.username === values.username && student.password === values.password && student.role === 'student'
+            );
+
+            if (student) {
+                console.log('Login successful');
+                console.log(student);
+                navigate('/Student_Homepage');
+            } else {
+                alert('Login failed. Invalid username or password.');
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+    };
 
     console.log(errors);
 
