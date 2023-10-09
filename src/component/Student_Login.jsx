@@ -32,15 +32,17 @@ function Student_Login() {
             // Set the JWT token in Axios headers before making the request
             setAuthHeader();
 
-            const response = await axios.get('/src/Student_Data/MOCK_USERS.json');
-            const students = response.data;
+            // Replace this URL with the actual API endpoint of your backend
+            const apiUrl = 'http://localhost:8080/api/login'; // Change this URL
 
-            const student = students.find(
-                (student) =>
-                    student.username === values.username && student.password === values.password && student.role === 'student'
-            );
+            const response = await axios.post(apiUrl, {
+                username: values.username,
+                password: values.password,
+            });
 
-            if (student) {
+            if (response.status === 200) {
+                const student = response.data; // Assuming your backend returns student data
+
                 console.log('Login successful');
                 console.log(student);
                 navigate('/Student_Homepage');
@@ -51,8 +53,6 @@ function Student_Login() {
             console.error('An error occurred:', error);
         }
     };
-
-    console.log(errors);
 
     return (
         <div className="flex items-center justify-center min-h-screen background ">
