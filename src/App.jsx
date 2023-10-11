@@ -50,11 +50,13 @@ function App() {
           <Route path='/Teacher_Reset_Password' element={<Teacher_Reset_Password />} />
           <Route path='/Teacher_PasswordReset_Success' element={<Teacher_PasswordReset_Success />} />
 
-          <Route path='/Teacher_Homepage' element={<Teacher_SharedLayout />}>
+          <Route path="/Teacher_Homepage" element={<Teacher_SharedLayout />}>
             <Route index element={<TeacherHomepage />} />
-            <Route path='Teacher_AccountManagement' element={<Teacher_AccountManagement />} />
-            <Route path='Add_Account' element={<Teacher_Add_Student />} />
+            <Route path="Teacher_AccountManagement" element={<Teacher_AccountManagement />} />
+            <Route path="Add_Account" element={<Teacher_Add_Student />} />
+
           </Route>
+
           {/* Admin Route */}
           <Route path='/AdminSignin' element={<AdminSignin />} />
         </Routes>

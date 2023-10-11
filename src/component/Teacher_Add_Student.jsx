@@ -5,12 +5,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function Teacher_Add_Student() {
-    const [studentToken, setStudentToken] = useState(null);
+    const [teacherToken, setTeacherToken] = useState(null);
 
     useEffect(() => {
-        // Retrieve the studentToken from your JWT or other client-side storage
-        const token = localStorage.getItem('studentToken'); // Example: Retrieve from local storage
-        setStudentToken(token);
+        // Retrieve the teacherToken from your JWT or other client-side storage
+        const token = localStorage.getItem('teacherToken'); // Example: Retrieve from local storage
+        setTeacherToken(token);
     }, []);
 
     const validationSchema = Yup.object().shape({
@@ -20,23 +20,32 @@ function Teacher_Add_Student() {
         gradeLevel: Yup.string().required('* Grade Level is required'),
     });
 
+    const checkStudentExistence = (values) => {
+        // Perform a check to see if a student with the same attributes already exists.
+        const { firstName, lastName, gradeLevel } = values;
+
+        return axios.get('/check-student-exists', {
+            params: {
+                firstName,
+                lastName,
+                gradeLevel,
+            },
+        });
+    };
+
     const onSubmit = (values) => {
-        if (!studentToken) {
-            console.error('Student token is not available.');
+        if (!teacherToken) {
+            console.error('Teacher token is not available.');
             return;
         }
 
-        const data = {
-            ...values,
-            studentToken: studentToken,
-        };
-
-        axios.get('your_api_endpoint', { params: data })
+        checkStudentExistence(values)
             .then(response => {
                 if (response.data.exists) {
                     console.error('Data already exists in the database.');
                 } else {
-                    axios.post('your_api_endpoint', data)
+                    // Proceed to create the student account.
+                    axios.post('/create-student', values)
                         .then(postResponse => {
                             console.log('POST request successful. Response:', postResponse.data);
                         })
@@ -46,7 +55,7 @@ function Teacher_Add_Student() {
                 }
             })
             .catch(error => {
-                console.error('GET request error:', error);
+                console.error('Error checking data:', error);
             });
     };
 
