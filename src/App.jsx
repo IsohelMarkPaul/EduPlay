@@ -22,6 +22,7 @@ import Teacher_AccountManagement from './component/Teacher_AccountManagement'
 import Teacher_SharedLayout from './component/Teacher_SharedLayout'
 
 import AdminSignin from './component/AdminSignin'
+import Teacher_Add_Student from './component/Teacher_Add_Student';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
           <Route path='/Teacher_Homepage' element={<Teacher_SharedLayout />}>
             <Route index element={<TeacherHomepage />} />
             <Route path='Teacher_AccountManagement' element={<Teacher_AccountManagement />} />
+            <Route path='Add_Account' element={<Teacher_Add_Student />} />
           </Route>
           {/* Admin Route */}
           <Route path='/AdminSignin' element={<AdminSignin />} />
